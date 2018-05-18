@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ejercicio ejemplo</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<!-- <script>
+		$(document).click(function(event){
+			console.log("event");
+			console.log( event.type ); // The event type, eg. "click"
+			console.log( event.which ); // The button or key that was pressed.
+			console.log( event.target ); // The originating element.
+			console.log( event.pageX ); // The document mouse X coordinate.
+			console.log( event.pageY ); // The document mouse Y coordinate.
+			event.preventDefault(); // Prevent the default action of the event (e.g. following a link).
+			event.stopPropagation(); // Stop the event from propagating up to other elements.
+		});
+	</script> -->
+
+	<!-- <script>
+		$(document).on("contextmenu", function(e){
+			e.preventDefault();
+		});
+	</script> -->
+
+	<!-- <img src="2.png" alt="">
+	<script>
+		$("img").on("contextmenu", function(e){
+			e.preventDefault();
+		});
+	</script> -->
+
+	<!-- EVENTOS DINÁMICAMENTE 
+			OBTRUSIVO
+	<button id="button" value="+"> + </button>
+	<p class="par" onclick="alert('hola')"> hola </p>
+	
+	<script type="text/javascript">
+		$("#button").click(function(){
+		$("body").append('<p class="par" onclick="alert(\'hola\')"> hola </p>')
+	});
+	</script> -->
+
+	<!-- EVENTOS DINÁMICAMENTE 
+			NO OBTRUSIVOS 
+	
+	<button id="button" value="+"> + </button>
+	<p class="par"> hola </p>
+
+	<script type="text/javascript">
+		$("#button").click(function(){
+			$("body").append('<p class="par"> hola </p>')
+		});
+		$(".par").on("click", function(){
+			alert("Hola");
+		}); 
+			
+	</script> -->
+		
+	 <!-- DELEGACIÓN DE ELEMENTOS DESDE EL PADRE -->
+	<button id="button" value="+"> + </button>
+	<p class="par"> hola </p>
+
+	<script type="text/javascript">
+		$("#button").click(function(){
+			$("body").append('<p class="par"> hola </p>')
+		});
+		$("body").on("click", ".par", function(){
+			alert("Hola");
+		}); 
+			
+	</script>
+</body>
+</html>
